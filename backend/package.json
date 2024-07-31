@@ -3,13 +3,23 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
+  "main": "index.js",
   "dependencies": {
     "@midwayjs/bootstrap": "^3.12.0",
     "@midwayjs/core": "^3.12.0",
     "@midwayjs/info": "^3.12.0",
     "@midwayjs/koa": "^3.12.0",
     "@midwayjs/logger": "^3.1.0",
-    "@midwayjs/validate": "^3.12.0"
+    "@midwayjs/validate": "^3.12.0",
+    "bcrypt": "^5.1.1",
+    "cli-progress": "^3.12.0",
+    "cors": "^2.8.5",
+    "debug": "^4.3.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.2",
+    "nodemon": "^3.1.4",
+    "progress": "^2.0.3"
   },
   "devDependencies": {
     "@midwayjs/mock": "^3.12.0",
@@ -26,9 +36,9 @@
     "node": ">=12.0.0"
   },
   "scripts": {
-    "start": "NODE_ENV=production node ./bootstrap.js",
-    "dev": "cross-env NODE_ENV=local mwtsc --watch --run @midwayjs/mock/app.js",
-    "test": "cross-env NODE_ENV=unittest jest",
+    "start": "NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=local nodemon index.js",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
     "cov": "jest --coverage",
     "lint": "mwts check",
     "lint:fix": "mwts fix",
