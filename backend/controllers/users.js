@@ -16,10 +16,26 @@ usersRouter.post('/', async (request, response) => {
         username,
         passwordHash,
     })
-    // 存储到数据库中
-    const savedUser = await user.save()
-    // 返回结果给前端
-    response.status(201).json(savedUser)
+    try {
+        // 存储到数据库中
+        const savedUser = await user.save()
+        // 返回结果给前端
+        response.status(201).json(savedUser)
+    } catch (error) {
+        if (error.name === 'MongoServerError' && error.code === 11000){
+            // 由用户名重复引起的错误
+            return response.status(400).json({ error: 'expected `username` to be unique' })
+        }
+        // 其他错误
+        return response.status(500).json({ error: 'something went wrong' })
+    }
+})
+
+// 获得数据库中所有用户及其任务
+usersRouter.get('/', async (request, response) => {
+    const users = await User
+        .find({}).populate('tasks', { content: 1, ddl: 1, important: 1 })
+    response.json(users)
 })
 
 
