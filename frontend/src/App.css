@@ -2,7 +2,6 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
 .logo {
@@ -39,4 +38,21 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* 保持表单对齐和布局 */
+.form-container {
+  display: flex;
+  justify-content: flex-start; /* 改变对齐方式为左对齐 */
+  text-align: left; /* 确保文本左对齐 */
+}
+
+.form-container .form-control {
+  width: 100%; /* 使输入框占满列宽 */
+}
+
+.form-container .col-md-4 {
+  border: 1px solid #dee2e6;
+  padding: 2rem;
+  background-color: #f8f9fa;
 }
