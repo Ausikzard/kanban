@@ -8,11 +8,9 @@ import LoginForm from './components/LoginForm'
 import Notification from './components/Noteification'
 import Tasks from './components/Tasks'
 import Navbar from './components/Navbar'
-import InitialPage from './components/InitialPage'
 
 function App() {
   const [user, setUser] = useState(null)
-  const [errorMessage, setErrorMessage] = useState(null)
   const [tasks, setTasks] = useState([])
 
   // 在用户登录了获取任务数据   
@@ -23,24 +21,9 @@ function App() {
   }, [tasks])
 
   // 处理登录逻辑
-  const onLogin = async (username, password, setUsername, setPassword) => {
-    // 向后端发起登入请求
-    try {
-      const user = await loginService.login({
-        username, password,
-      })
-      // 更新状态量
-      taskService.setToken(user.token)
-      setUser(user)
-    } catch (exception) {
-      setUsername('')
-      setPassword('')
-      setErrorMessage('Wrong credentials. Please re-enter your username and password')
-      setTimeout(() => {
-        setErrorMessage(null)
-      }, 5000)
-    }
-    console.log('logging in with', username, password)
+  const setLoggingUser = async (loginUser) => {
+    setUser(loginUser)
+    taskService.setToken(user.token)
   }
 
   // 处理任务逻辑
@@ -57,7 +40,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar user={user} setLoggingUser={setLoggingUser}/>
       {/* 用户未登录显示登录界面，用户登录则显示任务界面 */}
       {/* {
         user === null

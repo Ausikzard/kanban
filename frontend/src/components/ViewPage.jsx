@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ViewPage = () => {
+const ViewPage = ({user}) => {
   return (
     <div>
       <h2>视图界面</h2>

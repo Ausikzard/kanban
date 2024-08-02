@@ -3,14 +3,14 @@ const usersRouter = require('express').Router()
 const User = require('../models/user')
 const logger = require('../utils/logger')
 
-// 保存用户名和密码的hash值
+// 注册用户
 usersRouter.post('/', async (request, response) => {
-    // 确保密码为文本
     const username = request.body.username
-    const password = request.body.password.toString()
+    const password = request.body.password
     // 进行hash加密
     const saltRounds = 10
     const passwordHash = await bcrypt.hash(password, saltRounds)
+    
     // 生成新的user数据
     const user = new User({
         username,
