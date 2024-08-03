@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'http://localhost:5200/api/tasks'
+const baseUrl = 'http://localhost:5200/api/projects'
 
 // 令牌变量
 let token = null
@@ -9,7 +9,7 @@ const setToken = newToken => {
     token = `Bearer ${newToken}`
 }
 
-// 获取一个项目所有任务清单
+// 获取用户的所有项目
 const getAll = (params) => {
     const config = {
         headers: { Authorization: token },
@@ -19,11 +19,9 @@ const getAll = (params) => {
     return request.then(response => response.data)
 }
 
-// 创建一个新任务
-const create = async newObject => {
+// 创建一个新项目
+const create = async (newObject) => {
     // 将令牌添加至头部
-    console.log(token);
-
     const config = {
         headers: { Authorization: token },
     }
@@ -32,7 +30,8 @@ const create = async newObject => {
     return response.data
 }
 
-// 修改一个任务 
+
+// 修改一个项目
 const update = async (params, body) => {
     // 将令牌添加至头部
     console.log(token);
@@ -45,17 +44,4 @@ const update = async (params, body) => {
     return response.data
 }
 
-// 删除一个任务
-const deleteTask = async params => {
-    // 将令牌添加至头部
-    console.log(token);
-
-    const config = {
-        headers: { Authorization: token },
-        params: params
-    }
-    const response = await axios.delete(`${baseUrl}/${params.id}`, config)
-    return response.data
-}
-
-export default { getAll, create, update, setToken, deleteTask }
+export default { getAll, create, setToken, update}

@@ -5,6 +5,8 @@ const cors = require('cors')
 const usersRouter = require('./controllers/users')
 const tasksRouter = require('./controllers/tasks')
 const loginRouter = require('./controllers/login')
+const attachmentRouter = require('./controllers/filesController')
+const projectsRouter = require('./controllers/projects')
 const mongoose = require('mongoose')
 const logger = require('./utils/logger')
 
@@ -30,6 +32,8 @@ app.use(express.json())
 app.use('/api/users', usersRouter)
 app.use('/api/tasks', tasksRouter)
 app.use('/api/login', loginRouter)
+app.use('/api/projects', projectsRouter)
+app.use('/api/files', attachmentRouter)
 
 
 module.exports = app

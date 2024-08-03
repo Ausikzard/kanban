@@ -8,10 +8,10 @@ const userSchema = new mongoose.Schema({
         unique: true
     },
     passwordHash: String,
-    tasks: [
+    projects: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Task'
+            ref: 'Project'
         }
     ],
 })

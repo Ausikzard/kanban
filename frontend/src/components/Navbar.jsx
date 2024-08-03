@@ -49,8 +49,8 @@ const Navbar = ({ user, setLoggingUser }) => {
                 {user !== null && userBar()}
                 <div>
                     <Routes>
-                        <Route path="/" element={<MainPage setLoggingUser={setLoggingUser} />} />
-                        <Route path="/tasks" element={<TaskPage user={user} />} />
+                        <Route path="/" element={<MainPage setLoggingUser={setLoggingUser}/>} />
+                        <Route path="/tasks" element={<TaskPage user={user} setLoggingUser={setLoggingUser}/>} />
                         <Route path="/views" element={<ViewPage user={user} />} />
                     </Routes>
                 </div>
