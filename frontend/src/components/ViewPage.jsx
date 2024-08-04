@@ -1,9 +1,10 @@
 import React from 'react'
+import Calendar from './Calendar';
 
 const ViewPage = ({user}) => {
   return (
     <div>
-      <h2>视图界面</h2>
+      <Calendar />
     </div>
   );
 };
