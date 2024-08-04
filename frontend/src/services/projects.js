@@ -44,4 +44,17 @@ const update = async (params, body) => {
     return response.data
 }
 
-export default { getAll, create, setToken, update}
+// 删除一个任务
+const deleteProject = async params => {
+    // 将令牌添加至头部
+    console.log(token);
+
+    const config = {
+        headers: { Authorization: token },
+        params: params
+    }
+    const response = await axios.delete(`${baseUrl}/${params.id}`, config)
+    return response.data
+}
+
+export default { getAll, create, setToken, update, deleteProject}

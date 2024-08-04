@@ -60,14 +60,13 @@ const UpdateTaskDialog = ({ isOpen, onClose, task, getAllProjectTasks }) => {
                                         onChange={({ target }) => setDDL(target.value)}
                                     />
                                 </div>
-                                <div className="input-attachment d-flex full-width my-2">
-                                    <form action="/api/files/upload" method="post" enctype="multipart/form-data">
-                                        <input type="file" name="attachment" />
-                                        <button type="submit">上传文件</button>
-                                    </form>
-                                </div>
-
                             </form>
+                            <div className="input-attachment d-flex full-width my-2">
+                                <form action="/api/files/upload" method="post" encType="multipart/form-data">
+                                    <input type="file" name="attachment" />
+                                    <button type="submit">上传文件</button>
+                                </form>
+                            </div>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">关闭</button>

@@ -44,7 +44,7 @@ const TaskPage = ({ user, setLoggingUser }) => {
             <div className="col-md">
               <div className="card bg-black text-light">
                 <div className="card-body">
-                  <DoneTasks user={user} />
+                  <DoneTasks user={user} userProjects={userProjects} getAllProjects={getAllProjects}/>
                 </div>
               </div>
             </div>

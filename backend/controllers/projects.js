@@ -56,17 +56,23 @@ projectsRouter.patch('/:id', async (request, response) => {
         const body = request.body
         const id = request.params.id
         const updateProjecct = await Projecct.findByIdAndUpdate(id, body, { new: true })
-        // 检查是否找到并更新了任务
+        // 检查是否找到并更新了项目
         if (!updateProjecct) {
             return response.status(404).json({ message: 'Task not found' })
         }
         
-        // 返回更新后的任务
+        // 返回更新后的项目
         response.status(200).json(updateProjecct)
     } catch (error) {
         // 处理错误情况
         response.status(500).json({ message: error.message })
     }
+})
+
+// 删除一个项目
+projectsRouter.delete('/:id', async (request, response) => {
+    await Projecct.findByIdAndDelete(request.params.id)
+    response.status(204).end()
 })
 
 module.exports = projectsRouter
