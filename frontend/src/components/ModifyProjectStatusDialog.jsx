@@ -1,4 +1,3 @@
-import taskService from "../services/tasks"
 import projectServicee from "../services/projects"
 
 const ModifyProjectStatusDialog = ({ isOpen, onClose, project, getAllProjects }) => {

@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react"
 import taskService from "../services/tasks"
 
 const DeleteTaskDialog = ({ isOpen, onClose, task, getAllProjectTasks }) => {

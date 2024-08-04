@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState} from "react"
 import projectService from "../services/projects"
 
 const UpdateProjectDialog = ({ isOpen, onClose, project, getAllProjects}) => {

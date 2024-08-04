@@ -26,27 +26,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
+      - name: 建立Node.js环境
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install backend dependencies
+      - name: 安装后端依赖
         working-directory: ./backend
         run: npm install
 
-      - name: Install frontend dependencies
+      - name: 安装前端依赖
         working-directory: ./frontend
         run: npm install
 
-      - name: Load environment variables
+      - name: 载入环境变量
         run: |
           if [ -f .env ]; then
             echo "Loading environment variables from .env file"
             cat .env | grep -v '^#' >> $GITHUB_ENV
           fi
 
-      - name: Wait for MongoDB to be ready
+      - name: 等待数据库准备
         run: |
           echo "Waiting for MongoDB to be ready..."
           for i in {1..30}; do
@@ -55,7 +55,13 @@ jobs:
             sleep 1
           done
 
-      - name: Run backend tests
+      - name: 执行后端测试
         working-directory: ./backend
         run: npm test
 
+      - name: 软件构建
+        working-directory: ./backend
+        run: npm run build
+
+      - name: 清除开发依赖
+        run: npm prune --omit=dev

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState} from "react"
 import taskService from "../services/tasks"
 
 const CommentDialog = ({ isOpen, onClose, task, getAllProjectTasks }) => {

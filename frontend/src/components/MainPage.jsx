@@ -78,7 +78,7 @@ const MainPage = ({setLoggingUser}) => {
                                 点击使用
                             </button>
                         </div>
-                        <img src="../../public/showcase.svg" alt="showcase" className="w-50 h-50" />
+                        <img src="../..//showcase.svg" alt="showcase" className="w-50 h-50" />
                     </div>
                 </div>
             </section>

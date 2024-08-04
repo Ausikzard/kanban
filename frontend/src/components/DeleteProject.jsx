@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react"
 import projectService from "../services/projects"
 
 const DeleteProjectDialog = ({ isOpen, onClose, project, getAllProjects }) => {
