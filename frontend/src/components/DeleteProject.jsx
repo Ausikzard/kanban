@@ -9,11 +9,10 @@ const DeleteProjectDialog = ({ isOpen, onClose, project, getAllProjects }) => {
             const params = {
                 id: project.id
             }
-            const data = await projectService.deleteProject(params)
+            await projectService.deleteProject(params)
             alert('成功')
             getAllProjects()
         } catch (exception) {
-            console.log(exception);
             if (exception.response.status === 400)
                 alert('密钥缺失或错误')
             else if (exception.response.status === 401)

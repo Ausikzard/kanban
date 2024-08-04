@@ -39,9 +39,9 @@ const Navbar = ({ user, setLoggingUser }) => {
                                 <li className="nav-item">
                                     <Link to="/tasks" className="nav-link">任务界面</Link>
                                 </li>
-                                <li className="nav-item">
+                                {/* <li className="nav-item">
                                     <Link to="/views" className="nav-link">视图界面</Link>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                     </div>
@@ -51,7 +51,7 @@ const Navbar = ({ user, setLoggingUser }) => {
                     <Routes>
                         <Route path="/" element={<MainPage setLoggingUser={setLoggingUser}/>} />
                         <Route path="/tasks" element={<TaskPage user={user} setLoggingUser={setLoggingUser}/>} />
-                        <Route path="/views" element={<ViewPage user={user} />} />
+                        {/* <Route path="/views" element={<ViewPage user={user} />} /> */}
                     </Routes>
                 </div>
             </>

@@ -11,13 +11,11 @@ const ModifyTaskStatusDialog = ({ isOpen, onClose, task, getAllProjectTasks }) =
             const body = {
                 status: !task.status
             }
-            console.log(task);
             
             await taskService.update(params, body)
             alert('成功')
             getAllProjectTasks()
         } catch (exception) {
-            console.log(exception);
             if (exception.response.status === 400)
                 alert('密钥缺失或错误')
             else if (exception.response.status === 401)

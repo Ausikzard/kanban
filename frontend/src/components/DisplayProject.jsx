@@ -25,8 +25,6 @@ const DisplayProject = ({ project, getAllProjects, projectStatus }) => {
     // 展示具体任务函数
     const tastItem = (task, index, status) => {
         const containerBgColor = status ? "row item-container rounded bg-success" : "row item-container rounded bg-white "
-        console.log(task, containerBgColor);
-
         if (projectStatus === true) {
             return (
                 <li className="nav-item mt-2 mb-2" key={index}>

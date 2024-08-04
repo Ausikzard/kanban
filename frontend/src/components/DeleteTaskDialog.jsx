@@ -9,11 +9,10 @@ const DeleteTaskDialog = ({ isOpen, onClose, task, getAllProjectTasks }) => {
             const params = {
                 id: task.id
             }
-            const data = await taskService.deleteTask(params)
+            await taskService.deleteTask(params)
             alert('成功')
             getAllProjectTasks()
         } catch (exception) {
-            console.log(exception);
             if (exception.response.status === 400)
                 alert('密钥缺失或错误')
             else if (exception.response.status === 401)

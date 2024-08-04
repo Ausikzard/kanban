@@ -8,20 +8,16 @@ const DoingTaskDialog = ({ isOpen, onClose, project, getAllProjectTasks }) => {
     // 提交任务申请
     const onClick = async () => {
         // 向后端申请一个项目的任务
-        console.log(content, ddl, typeof ddl);
-
         try {
             const taskObject = {
                 content: content,
                 ddl: new Date(ddl),
                 projectId: project.id
             }
-            console.log(taskObject)
-            const data = await taskService.create(taskObject)
+            await taskService.create(taskObject)
             alert('成功')
             getAllProjectTasks()
         } catch (exception) {
-            console.log(exception);
             if (exception.response.status === 400)
                 alert('密钥缺失或错误')
             else if (exception.response.status === 401)
