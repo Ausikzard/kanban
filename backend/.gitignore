@@ -11,4 +11,3 @@ run/
 *.un~
 .tsbuildinfo
 .tsbuildinfo.*
-.env
