@@ -39,6 +39,22 @@ jobs:
         working-directory: ./frontend
         run: npm install
 
+      - name: Load environment variables
+        run: |
+          if [ -f .env ]; then
+            echo "Loading environment variables from .env file"
+            cat .env | grep -v '^#' >> $GITHUB_ENV
+          fi
+
+      - name: Wait for MongoDB to be ready
+        run: |
+          echo "Waiting for MongoDB to be ready..."
+          for i in {1..30}; do
+            nc -zv localhost 27017 && echo "MongoDB is ready" && break
+            echo "Waiting for MongoDB..."
+            sleep 1
+          done
+
       - name: Run backend tests
         working-directory: ./backend
         run: npm test
