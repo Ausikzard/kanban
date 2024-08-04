@@ -13,7 +13,7 @@ const DoingTasks = ({ user, userProjects, getAllProjects }) => {
                 doing
             </div>
             <div className="card-text text-center mb-2">
-                当前你需要完成的任务
+                当前你需要完成的任务(绿色表示已完成,白色表示未完成)
             </div>
             <div>
                 {FourthProjects.map(userProject => <DisplayProject project={userProject} getAllProjects={getAllProjects} key={userProject.id} projectStatus={false}/>)}

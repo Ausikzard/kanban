@@ -30,7 +30,7 @@ const DisplayProject = ({ project, getAllProjects, projectStatus }) => {
                 <li className="nav-item mt-2 mb-2" key={index}>
                     <div className="row item-container rounded bg-success">
                         <div className="col">
-                            <p className="navbar-brand text-dark mt-1 mb-1">第{index}个任务名称: {task.content}</p>
+                            <p className="navbar-brand text-dark mt-1 mb-1">第{index}个任务内容: {task.content}</p>
                             <p className="navbar-brand text-dark mt-1 mb-1">DDL: {task.ddl.toString().replace('T', ' ').replace('.000Z', '')}</p>
                         </div>
                         <div className="col text-center d-flex align-items-center justify-content-center">
@@ -49,7 +49,7 @@ const DisplayProject = ({ project, getAllProjects, projectStatus }) => {
             <li className="nav-item mt-2 mb-2" key={index}>
                 <div className={containerBgColor}>
                     <div className="col">
-                        <p className="navbar-brand text-dark mt-1 mb-1">第{index}个任务名称: {task.content}</p>
+                        <p className="navbar-brand text-dark mt-1 mb-1">第{index}个任务内容: {task.content}</p>
                         <p className="navbar-brand text-dark mt-1 mb-1">DDL: {task.ddl.toString().replace('T', ' ').replace('.000Z', '')}</p>
                     </div>
                     <div className="col text-center d-flex align-items-center justify-content-center">

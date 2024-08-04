@@ -63,8 +63,8 @@ const UpdateTaskDialog = ({ isOpen, onClose, task, getAllProjectTasks }) => {
                             <div className="input-attachment d-flex full-width my-2">
                                 <form action="/api/files/upload" method="post" encType="multipart/form-data">
                                     <input type="file" name="attachment" />
-                                    <button type="submit">上传文件</button>
                                 </form>
+                                <button >上传文件</button>
                             </div>
                         </div>
                         <div className="modal-footer">
